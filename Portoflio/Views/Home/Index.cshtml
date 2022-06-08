@@ -1,0 +1,253 @@
+﻿@model HomeVm
+  
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5BB8W2X"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- ======= Header ======= -->
+  <header id="header" class="header-tops">
+
+    <div class="container">
+
+      <h1><a href="index.html">Prerak Raja</a></h1>
+      <h2 style="color:#fff">I'm <span class="typing" style="color:#12D640"></span></h2>
+      <nav class="nav-menu d-none d-lg-block">
+        <ul>
+          <li class="active"><a href="#header"> <span>Home</span></a></li>
+          <li><a href="#about"><span>About</span></a></li>
+          <li><a href="#experience"> <span>Experience</span></a></li>
+          <li><a href="#skills"> <span>Skills</span></a></li>
+        
+          <li><a href="#contacts"> <span>Contact</span></a></li>
+
+        </ul>
+      </nav><!-- .nav-menu -->
+
+      <div class="social-links">
+          @foreach (var item in Model.Socials)
+         {
+             
+          <a href="@item.Value" target="_blank" class="@item.Key"><i class="bx bxl-@item.Key"></i></a>
+         }
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+
+    <!-- ======= About Me ======= -->
+    <div class="about-me container">
+
+      <div class="section-title">
+        <h2>About</h2>
+      </div>
+
+      <div class="row">
+
+          @foreach (var item in Model.Abouts)
+          {
+              
+        <div class="col-lg-4" data-aos="fade-right">
+          <img src="~/assets/img/@item.Image" class="img-fluid" alt="">
+        </div>
+        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+          <p>@item.about
+          </p>
+          <div class="row">
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="icofont-rounded-right"></i> <strong>Birthday:</strong> @item.Birthday</li>
+                <li><i class="icofont-rounded-right"></i> <strong>Phone:</strong> @item.Phone</li>
+              </ul>
+            </div>
+            <div class="col-lg-6">
+              <ul>
+                <li><i class="icofont-rounded-right"></i> <strong>City:</strong> @item.City</li>
+                <li><i class="icofont-rounded-right"></i> <strong>Email:</strong> @item.Email</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+          }
+      </div>
+
+    </div><!-- End About Me -->
+
+    <!-- ======= Interests ======= -->
+    <div class="interests container">
+
+      <div class="section-title">
+        <h2>Interests</h2>
+      </div>
+      <div class="row">
+      @foreach (var item in Model.Interests)
+     {
+         
+        <div class="col-lg-3 col-md-4">
+          <div class="icon-box">
+            <i class="@item.Key" style="color: @item.Color;"></i>
+            <h3>@item.Value</h3>
+          </div>
+        </div>
+     }
+      
+      </div>
+
+    </div><!-- End Interests -->
+  </section><!-- End About Section -->
+
+
+
+  <!-- Start Experience Section -->
+
+  <section id="experience" class="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Experience</h2>
+      </div>
+      <div class="row">
+
+          <div class="col-lg-12" data-aos="fade-up">
+              @foreach (var item in Model.Expeirences)
+             {
+              <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100">
+                <h4 style="text-align:left;"><a href="https://www.asu.edu/" style="color:#12d640">@item.Title</a><br> </h4>
+                <h5 style="text-align:left;">@item.Time</h5>
+                <p style="text-align:left;color:#fff"><em>@item.Position </em></p>
+                <ul style="text-align:left;">
+                  <li>@item.PositonTitle</li>
+                </ul>
+              </div>
+             }
+          </div>
+        </div>
+    </div>
+  </section>
+
+  <!-- End Experience Section -->
+
+
+
+  
+
+
+
+  <!-- Start Skills Section -->
+
+  <section id="skills" class="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>Skills</h2>
+      </div>
+      <div class="row">
+        <div class="col-lg-12" data-aos="fade-up">
+            @foreach (var skill in Model.Skills)
+           {
+           
+          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="fade-up" data-aos-delay="100" style="background:#fff">
+            <h4 style="text-align:left;color:#09203a">@skill.Name</h4>
+                <p style="text-align:left;">
+                    @foreach (var setting in skill.SkillSettings)
+                    {
+                        <img src="~/assets/uploads/@setting.Image" alt="vectorlogo.zone" height="80" width="150">
+                    }
+
+                </p>
+            </div>
+            }
+            @*<div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="lefade-up" data-aos-delay="100" style="background:#fff">
+              <h4 style="text-align:left;color:#09203a">Frameworks</h4>
+                <p style="text-align:left;">
+                  <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-ar21.svg" alt="vectorlogo.zone">
+                  <img src="https://www.vectorlogo.zone/logos/djangoproject/djangoproject-ar21.svg" alt="vectorlogo.zone">
+                  <img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-horizontal.svg" alt="vectorlogo.zone">
+                  <img src="https://www.vectorlogo.zone/logos/getbootstrap/getbootstrap-ar21.svg" alt="vectorlogo.zone">
+                  <img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-ar21.svg" alt="vectorlogo.zone">
+                  <img src="https://www.vectorlogo.zone/logos/pytorch/pytorch-ar21.svg" alt="vectorlogo.zone">
+                  <img src="https://www.vectorlogo.zone/logos/opencv/opencv-ar21.svg" alt="vectorlogo.zone">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="upload.wikimedia.org" width="90" height="70">
+              </p>
+          </div>
+          <div class="col-md-12 mt-4 mt-md-0 icon-box" data-aos="lefade-up" data-aos-delay="100" style="background:#fff">
+              <h4 style="text-align:left;color:#09203a">Tools</h4>
+                <p style="text-align:left;">
+                  <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-ar21.svg" alt="vectorlogo.zone">
+                  <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-ar21.svg" alt="vectorlogo.zone">
+                  <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-ar21.svg" alt="vectorlogo.zone">
+                  <img src="https://www.vectorlogo.zone/logos/heroku/heroku-ar21.svg" alt="vectorlogo.zone">
+                  <img src="https://www.vectorlogo.zone/logos/jupyter/jupyter-ar21.svg" alt="vectorlogo.zone">
+              </p>
+          </div>*@
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- End Skills Section -->
+
+
+
+
+
+
+  <!-- Start Contact Section -->
+
+  <section id="contacts" class="contact">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Contact</h2>
+      </div>
+
+      <div class="row mt-2">
+          @foreach (var item in Model.Abouts)
+         {
+             
+        <div class="col-md-6 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-map"></i>
+            <h3>My Address</h3>
+
+            <p>@item.City</p>
+          </div>
+        </div>
+         }
+
+        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-share-alt"></i>
+            <h3>Social Profiles</h3>
+            <div class="social-links">
+                          @foreach (var item in Model.Socials)
+         {
+              <a href="@item.Value" target="_blank" class="@item.Key"><i class="bx bxl-@item.Key"></i></a>
+             
+         }
+
+            </div>
+          </div>
+        </div>
+        @foreach (var item in Model.Abouts)
+       {
+           
+        <div class="col-md-6 mt-4 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-envelope"></i>
+            <h3>Email</h3>
+            <p>@item.Email</p>
+          </div>
+        </div>
+        <div class="col-md-6 mt-4 d-flex align-items-stretch">
+          <div class="info-box">
+            <i class="bx bx-phone-call"></i>
+            <h3>Contact</h3>
+            <p>@item.Phone</p>
+          </div>
+        </div>
+       }
+      </div>
+      <!-- <div id="sfczmlqxr5caww28rswrt8849ghbekgnh3j" ></div><script type="text/javascript" src="https://counter1.stat.ovh/private/counter.js?c=zmlqxr5caww28rswrt8849ghbekgnh3j&down=async" async></script><noscript><a href="https://www.freecounterstat.com" title="free web counter"><img src="https://counter1.stat.ovh/private/freecounterstat.php?c=zmlqxr5caww28rswrt8849ghbekgnh3j" border="0" title="free web counter" alt="free web counter" style="visibility: none;"></a></noscript> -->
+    </div>
+  </section>

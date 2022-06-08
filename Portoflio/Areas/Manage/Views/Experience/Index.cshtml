@@ -1,0 +1,41 @@
+﻿@model List<Expeirence>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <h1>Tables</h1>
+        <a asp-action="Create"  class="btn btn-primary">Create</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Title</th>
+                <th scope="col">Time</th>
+                <th scope="col">Position</th>
+                <th scope="col">PositionTitle</th>
+
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Social in Model)
+            {
+                <tr>
+                    <th scope="row">@Social.Id</th>
+                    <td>@Social.Title</td>
+                    <td>@Social.Time</td>
+                    <td>@Social.Position</td>
+                    <td>@Social.PositonTitle</td>
+                    <td>
+                        <a asp-action="Update"  asp-route-id="@Social.Id" class="btn btn-warning">Edit</a>
+                        <a type="submit" asp-action="Delete"  asp-route-id="@Social.Id" class="btn btn-danger btn-sweet-delete">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

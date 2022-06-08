@@ -1,0 +1,30 @@
+﻿@model Social
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="container-fluid">
+    <form method="post" >
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Value"></label>
+                <input asp-for="Value" class="form-control" >
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Key"></label>
+                <input asp-for="Key" class="form-control" >
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>
+@section scripts{
+    <script>
+    @await Html.PartialAsync("~/Areas/Manage/Views/Shared/_ValidationParital.cshtml")
+
+        })
+    </script>
+
+}

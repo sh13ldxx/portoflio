@@ -1,0 +1,36 @@
+﻿@model Expeirence
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container-fluid">
+    <form method="post" >
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" >
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="Time"></label>
+                <input asp-for="Time" class="form-control" >
+            </div>
+                        <div class="form-group col-md-6">
+                <label asp-for="Position"></label>
+                <input asp-for="Position" class="form-control" >
+            </div>
+                        <div class="form-group col-md-6">
+                <label asp-for="PositonTitle"></label>
+                <input asp-for="PositonTitle" class="form-control" >
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+</div>
+@section scripts{
+    <script>
+    @await Html.PartialAsync("~/Areas/Manage/Views/Shared/_ValidationParital.cshtml")
+    </script>
+
+}

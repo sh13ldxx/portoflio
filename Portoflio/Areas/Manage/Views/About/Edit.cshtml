@@ -1,0 +1,46 @@
+﻿@model About
+@{
+    ViewData["Title"] = "Update";
+}
+
+<div class="container-fluid">
+    <form method="post" enctype="multipart/form-data">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Image"></label>
+                <input asp-for="Image" class="form-control" >
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="about"></label>
+                <input asp-for="about" class="form-control" >
+            </div>
+                        <div class="form-group col-md-6">
+                <label asp-for="Birthday"></label>
+                <input asp-for="Birthday" class="form-control" >
+            </div>
+                        <div class="form-group col-md-6">
+                <label asp-for="City"></label>
+                <input asp-for="City" class="form-control" >
+                        <div class="form-group col-md-6">
+                <label asp-for="Phone"></label>
+                <input asp-for="Phone" class="form-control" >
+                        </div>
+                        <div class="form-group col-md-6">
+                <label asp-for="Email"></label>
+                <input asp-for="Email" class="form-control" >
+            </div>
+           
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </form>
+</div>
+@section scripts{
+    <script>
+    @await Html.PartialAsync("~/Areas/Manage/Views/Shared/_ValidationParital.cshtml")
+
+        })
+    </script>
+
+}

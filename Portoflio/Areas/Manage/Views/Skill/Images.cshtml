@@ -1,0 +1,61 @@
+﻿@{
+    ViewData["Title"] = "Update";
+}
+
+@section styles {
+<link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+}
+
+
+<div class="container-fluid">
+    <div class="form-row">
+        <div class="form-group col-md-12">
+            <form asp-action="Images"
+                  enctype="multipart/form-data"
+                  class="dropzone"
+                  id="skill-images-dropzone"></form>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+<script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+<script>
+    Dropzone.options.skillImagesDropzone = {
+      addRemoveLinks: true,
+      acceptedFiles: ".jpeg,.jpg,.png,.gif, .svg",
+      uploadMultiple: true,
+      paramName: function () { return "files" },
+      init: function () {
+        let myDropzone = this;
+        
+        fetch(`@Url.Action("GetImages", "Skill")/${@ViewBag.SkillId}`)
+        .then(response => response .json())
+        .then(images => {
+           images.forEach(image => {
+            let mockFile = { id: 12, name: image.name, size: image.size };
+            myDropzone.displayExistingFile(mockFile,image.path);
+           })
+        })
+
+
+       this.on("removedfile", function(file){
+           var data = new FormData();
+           data.append("fileName", file.name);
+
+          fetch(`@Url.Action("RemoveImage", "Skill")`, {
+              "method" : "POST",
+              "body" : data
+          });
+       });
+
+      }
+    };
+</script>
+<script>
+    @await Html.PartialAsync("~/Areas/Manage/Views/Shared/_ValidationParital.cshtml")
+
+        })
+</script>
+
+}

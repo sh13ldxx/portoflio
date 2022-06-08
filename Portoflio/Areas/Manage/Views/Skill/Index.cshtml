@@ -1,0 +1,42 @@
+﻿@model HomeVm
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container-fluid">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <h1>Tables</h1>
+        <a asp-action="Create"  class="btn btn-primary">Create</a>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Name</th>
+                <th scope="col">Images</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Skill in Model.Skills)
+            {
+                <tr>
+                    <th scope="row">@Skill.Id</th>
+                    <td>@Skill.Name</td>
+                    <td>
+                     @foreach (var setting in Skill?.SkillSettings)
+                    {
+                        <img src="~/assets/uploads/@setting?.Image" alt="vectorlogo.zone" height="50" width="150">
+                    }
+                    </td>
+                    <td>
+                        <a asp-action="Update"  asp-route-id="@Skill.Id" class="btn btn-warning">Edit</a>
+                        <a asp-action="Images"  asp-route-id="@Skill.Id" class="btn btn-success">Images</a>
+                        <a type="submit" asp-action="Delete" asp-route-id="@Skill.Id" class="btn btn-danger btn-sweet-delete">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
