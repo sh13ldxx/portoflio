@@ -33,10 +33,10 @@ namespace Portoflio.Controllers
                 Name =register.FirstName,
                 Surname =register.LastName,
                 UserName=register.username,
-                Email= register.Email
+                Email= register.Email,
             };
 
-            IdentityResult result = await _userManager.CreateAsync(newUser);
+            IdentityResult result = await _userManager.CreateAsync(newUser,register.Password);
             if (!result.Succeeded)
             {
                 foreach (var item in result.Errors)
